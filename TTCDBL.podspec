@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TTCDBL'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'select @ && @'
 
 # This description is used to generate tags and improve search results.
@@ -26,8 +26,6 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'p5p50p5p@gmail.com' => 'p5p50p5p@gmail.com' }
   s.source           = { :git => 'https://github.com/jimmy-hung/TTCDBL.git', :tag => s.version.to_s }
-  s.source           = { 'https://github.com/CocoaPods/Specs.git' }
-  s.source           = { source 'https://bitbucket.org/larvata-tw/larvata-cocoapods-specs.git' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -35,9 +33,6 @@ TODO: Add long description of the pod here.
   s.source_files = 'TTCDBL/Classes/'
   s.swift_version = '4.0'
   s.dependency 'KKTouchPoints'
-  s.dependency 'lottie-ios'
-  s.dependency 'JPush'
-  s.dependency 'Crashlytics'
   # s.resource_bundles = {
   #   'TTCDBL' => ['TTCDBL/Assets/*.png']
   # }
