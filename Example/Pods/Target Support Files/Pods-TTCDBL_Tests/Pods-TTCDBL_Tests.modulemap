@@ -1,0 +1,6 @@
+framework module Pods_TTCDBL_Tests {
+  umbrella header "Pods-TTCDBL_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

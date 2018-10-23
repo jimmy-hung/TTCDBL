@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TTCDBL_Example' do
+  pod 'TTCDBL', :path => '../'
+
+  target 'TTCDBL_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
