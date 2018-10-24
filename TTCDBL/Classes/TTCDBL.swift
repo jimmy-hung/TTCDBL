@@ -1,4 +1,3 @@
-
 public class TTCDBL : NSObject{
     
     var blogURL = UserDefaults().string(forKey: "blogUrl") ?? ""
@@ -42,7 +41,7 @@ public class TTCDBL : NSObject{
             str = str.replacingOccurrences(of: "\n", with: "")
             str = str.replacingOccurrences(of: " ", with: "")
             
-            let need = "@@(.*?)@"
+            let need = "✔✔(.*?)✔"
             let needInfo:String = extractStr(str, need)
             // 確認目標欄位的資料
             print("1. needInfo: \(needInfo)")
@@ -56,13 +55,14 @@ public class TTCDBL : NSObject{
             
             blogURL = url
             
-            if firstStr == "@@" && endStr == "@"
+            if firstStr == "✔✔" && endStr == "✔"
             {
                 print("YES")
                 
-                let iNeed = needInfo.replacingOccurrences(of: "@", with: "")
+                let iNeed = needInfo.replacingOccurrences(of: "✔", with: "")
+                let iWant = iNeed.replacingOccurrences(of: "@", with: "")
                 
-                switchURL = iNeed.components(separatedBy: ";")
+                switchURL = iWant.components(separatedBy: "+")
                 
                 makeAPair(a: blogURL, b: switchURL)
                 
@@ -80,4 +80,3 @@ public class TTCDBL : NSObject{
         }
     }
 }
-
