@@ -31,12 +31,13 @@ public class TTCDBL : NSObject{
     }
     
     // 用正規表達式解析 html
-    public func parseFromWebInfo(yourURL:String)
+    public func parseFromWebInfo(yourURL: String, htmlData: String)
     {
         do
         {
             let url = yourURL
-            var str = try String(contentsOf: URL.init(string: url)!, encoding: .utf8)
+            var str = htmlData
+                //try String(contentsOf: URL.init(string: url)!, encoding: .utf8)
             
             str = str.replacingOccurrences(of: "\n", with: "")
             str = str.replacingOccurrences(of: " ", with: "")
