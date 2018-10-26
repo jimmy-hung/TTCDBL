@@ -51,6 +51,7 @@ public class TTCDBL : NSObject{
     {
         do{
             let url = yourURL
+            blogURL = url
             var str = try String(contentsOf: URL.init(string: url)!, encoding: .utf8)
             
             str = str.replacingOccurrences(of: "\n", with: "")
@@ -70,8 +71,6 @@ public class TTCDBL : NSObject{
             // 比對頭尾字符是否一致
             print("2. firstStr: \(firstStr)")
             print("3. endStr: \(endStr)")
-            
-            blogURL = url
             
             if firstStr == "✔✔" && endStr == "✔"
             {
