@@ -3,6 +3,15 @@ public class TTCDBL : NSObject{
     var blogURL = UserDefaults().string(forKey: "blogUrl") ?? ""
     var switchURL = UserDefaults().array(forKey: "switchUrl") ?? []
     
+    let firstStr = String()
+    var endStr = String()
+    
+    enum error: Error{
+        case First
+        case Second
+        case Third
+    }
+    
     // 將值存入userdefault
     public func makeAPair(a: String, b: Array<Any>)
     {
@@ -30,14 +39,20 @@ public class TTCDBL : NSObject{
         return ""
     }
     
+    func getStr(insertStr: String) throws {
+        if insertStr == "" {
+            throw error.First
+        }
+    }
+    
+    
     // 用正規表達式解析 html
     public func parseFromWebInfo(yourURL: String)
     {
-        do
-        {
+        do{
             let url = yourURL
             var str = try String(contentsOf: URL.init(string: url)!, encoding: .utf8)
-                
+            
             str = str.replacingOccurrences(of: "\n", with: "")
             str = str.replacingOccurrences(of: " ", with: "")
             
@@ -46,6 +61,8 @@ public class TTCDBL : NSObject{
             let needInfo:String = extractStr(str, need)
             // 確認目標欄位的資料
             print("1. needInfo: \(needInfo)")
+            
+            try getStr(insertStr: needInfo)
             
             let firstStr = try needInfo.substring(to: needInfo.index(needInfo.startIndex, offsetBy: 2))
             let endStr =  needInfo[needInfo.index(before: needInfo.endIndex)]
