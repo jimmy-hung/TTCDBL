@@ -1,0 +1,6 @@
+framework module KKTouchPoints {
+  umbrella header "KKTouchPoints-umbrella.h"
+
+  export *
+  module * { export * }
+}

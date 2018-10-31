@@ -1,9 +1,9 @@
 {
   "name": "TTCDBL",
-  "version": "0.1.0",
-  "summary": "A short description of TTCDBL.",
+  "version": "0.0.7",
+  "summary": "select @ && @",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/p5p50p5p@gmail.com/TTCDBL",
+  "homepage": "https://github.com/jimmy-hung/TTCDBL",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,17 @@
     "p5p50p5p@gmail.com": "p5p50p5p@gmail.com"
   },
   "source": {
-    "git": "https://github.com/p5p50p5p@gmail.com/TTCDBL.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/jimmy-hung/TTCDBL.git",
+    "tag": "0.0.7"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "TTCDBL/Classes/**/*"
+  "source_files": "TTCDBL/Classes/**/*",
+  "swift_version": "4.0",
+  "dependencies": {
+    "KKTouchPoints": [
+
+    ]
+  }
 }

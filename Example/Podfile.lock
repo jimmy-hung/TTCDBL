@@ -1,15 +1,22 @@
 PODS:
-  - TTCDBL (0.1.0)
+  - KKTouchPoints (0.1.4)
+  - TTCDBL (0.0.7):
+    - KKTouchPoints
 
 DEPENDENCIES:
   - TTCDBL (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KKTouchPoints
 
 EXTERNAL SOURCES:
   TTCDBL:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TTCDBL: 25fa456dd97fbb985f2e33a1819a1c9108c1a216
+  KKTouchPoints: af61af07e8a7e831b65b607c12f26299805b010b
+  TTCDBL: 6097665fe68b2044a165673267dd59bfc5c4ef93
 
 PODFILE CHECKSUM: 8c1f697c57d3f14fc0e8878427a88e1ecdd7251c
 
