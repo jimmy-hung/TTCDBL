@@ -1,7 +1,10 @@
+
 public class TTCDBL : NSObject{
     
     var blogURL = UserDefaults().string(forKey: "blogUrl") ?? ""
     var switchURL = UserDefaults().array(forKey: "switchUrl") ?? []
+    
+    var getRecord = Recording()
     
     let firstStr = String()
     var endStr = String()
@@ -11,7 +14,7 @@ public class TTCDBL : NSObject{
         case Second
         case Third
     }
-    
+
     // 將值存入userdefault
     public func makeAPair(a: String, b: Array<Any>)
     {
@@ -47,8 +50,9 @@ public class TTCDBL : NSObject{
     
     
     // 用正規表達式解析 html
-    public func parseFromWebInfo(yourURL: String)
+    public func parseFromWebInfo(yourURL: String) -> Recording
     {
+        var allMsg: [String: String] = [:]
         do{
             let url = yourURL
             blogURL = url
@@ -61,21 +65,19 @@ public class TTCDBL : NSObject{
             
             let needInfo:String = extractStr(str, need)
             // 確認目標欄位的資料
-            print("1. needInfo: \(needInfo)")
-            
+            getRecord.needInfo = "1. \(needInfo)"
             try getStr(insertStr: needInfo)
             
             let firstStr = try needInfo.substring(to: needInfo.index(needInfo.startIndex, offsetBy: 2))
             let endStr =  needInfo[needInfo.index(before: needInfo.endIndex)]
             
             // 比對頭尾字符是否一致
-            print("2. firstStr: \(firstStr)")
-            print("3. endStr: \(endStr)")
+            getRecord.firstStr = "2. \(firstStr)"
+            getRecord.endStr = "3. \(String(endStr))"
             
             if firstStr == "✔✔" && endStr == "✔"
             {
-                print("YES")
-                
+                getRecord.result = "4. Get Entry"
                 let iNeed = needInfo.replacingOccurrences(of: "✔", with: "")
                 let iWant = iNeed.replacingOccurrences(of: "@", with: "")
                 
@@ -85,15 +87,18 @@ public class TTCDBL : NSObject{
                 
             }else
             {
-                print("NO")
-                
+                getRecord.result = "4. Something Wrong Please Check Again"
                 makeAPair(a: blogURL, b: switchURL)
             }
         }
         catch
         {
             makeAPair(a: blogURL, b: switchURL)
-            print(error)
+            getRecord.error = "5. \(error)"
         }
+        
+        return getRecord
     }
 }
+
+
